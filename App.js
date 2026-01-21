@@ -1,14 +1,16 @@
 
 import { StatusBar } from 'expo-status-bar';
-import {View,Text ,StyleSheet, FlatList } from 'react-native';
+import {View,StyleSheet } from 'react-native';
 import Header from "./src/components/Header";
 import Search from './src/components/Search';
-import Category from './src/components/Category';
+import {useState} from 'react';
+import Categories from './src/components/Categories';
 export default function App() {
+  const[term, setTerm] = useState("Burger");
   const commonCategories= [
     {
       name:"Burger",
-      imageUrl:require('./src/assets/images/Hamburger.png')
+      imageUrl:require('./src/assets/images/hamburger.png')
     },
     {
       name:"Pizza",
@@ -31,32 +33,22 @@ export default function App() {
       imageUrl:require('./src/assets/images/protein.png')
     }
 
-  ]
+  ];
+
   return (
     <View >
       <Header/>
-      <Search/>
-      <FlatList
-        data={commonCategories}
-        renderItem={({ item }) => (
-          <Category name={item.name} imageUrl={item.imageUrl} />
-        )}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        keyExtractor={(item) => item.name}
+      <Search 
+      setTerm={setTerm}
       />
-
+      <Categories
+      categories={commonCategories}
+      setTerm={setTerm}
+      term={term}
+      />
        <StatusBar/>
     </View>
    
   );
 }
 
-/* const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    backgroundColor:'#fff',
-    alignItems:'center',
-    justifyContent:'center',
-  }
-}) */

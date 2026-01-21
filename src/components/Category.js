@@ -1,14 +1,20 @@
-import { View,Text, StyleSheet, Image } from "react-native"
-import { elevation } from "../common/styles"
+import { View,Text, StyleSheet, Image, Botton, TouchableOpacity } from "react-native"
+import { elevation } from "../common/styles";
+
 
 export default function Category(props){
     return(
-        <View style={[styles.container, styles.elevation]}>
+        <TouchableOpacity onPress={props.handlePress}>
+        <View style={[styles.container, styles.elevation,
+        props.index ===0 ? {marginLeft:15} : {marginLeft:30},
+        props.active ? {backgroundColor:'rgb(241,186,87)'} : {backgroundColor:'#F5F5F5'}]}>
+
             <View style={styles.imageContainer}>
                 <Image source={props.imageUrl} style={styles.image}/>
             </View>
             <Text style={styles.header}>{props.name}</Text>
         </View>
+        </TouchableOpacity>
     )
 }
 
@@ -21,7 +27,6 @@ const styles=StyleSheet.create({
         backgroundColor: '#F5F5F5',
         justifyContent:'center',
         alignItems:'center',
-        marginHorizontal:10,
     },
     elevation,
     image:{
