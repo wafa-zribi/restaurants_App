@@ -5,6 +5,7 @@ import Header from "./src/components/Header";
 import Search from './src/components/Search';
 import {useState} from 'react';
 import Categories from './src/components/Categories';
+import Restaurants from './src/components/Restaurants';
 export default function App() {
   const[term, setTerm] = useState("Burger");
   const commonCategories= [
@@ -46,6 +47,7 @@ export default function App() {
       setTerm={setTerm}
       term={term}
       />
+      <Restaurants term={term} />
        <StatusBar/>
     </View>
    
