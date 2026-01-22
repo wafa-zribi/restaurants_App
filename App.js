@@ -26,7 +26,7 @@ export default function App() {
       imageUrl:require('./src/assets/images/ramen.png')
     },
     {
-      name:"smoothie",
+      name:"drinks",
       imageUrl:require('./src/assets/images/smoothie.png')
     },
     {
@@ -37,20 +37,38 @@ export default function App() {
   ];
 
   return (
-    <View >
+    <View style={styles.container}>
       <Header/>
-      <Search 
+      <Search
       setTerm={setTerm}
       />
-      <Categories
+      <Categories style= {styles.categoriesContainer}
       categories={commonCategories}
       setTerm={setTerm}
       term={term}
       />
-      <Restaurants term={term} />
+      <Restaurants style= {styles.restaurantsContainer} term={term} />
        <StatusBar/>
     </View>
-   
+
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+
+  },
+  categoriesContainer:{
+    marginTop:10,
+    marginBottom:10,
+    height:120,
+  },
+  restaurantsContainer:{
+    //flex:1,
+    marginTop:10,
+    marginBottom:10,
+    height:500,
+  }
+});

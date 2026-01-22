@@ -16,7 +16,7 @@ export default ()=> {
          const response = await geoapify.get('/v2/places', {
                 params: {
                 categories: 'catering.restaurant',
-                filter: 'circle:10.7603,34.7406,5000', // Sfax + 5km radius
+                filter: 'circle:-74.006,40.7128,5000', // New York + 5km radius
                 limit: 20,
                 name: term,
                 },

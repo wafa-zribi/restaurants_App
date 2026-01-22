@@ -1,9 +1,10 @@
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 import Category from "./Category";
 export default function Categories({categories, setTerm, term}){
     return(
+  <View>
     <FlatList
-              data={categories} setTerm={setTerm} term={term}
+              data={categories}
               horizontal
               showsHorizontalScrollIndicator={false}
               keyExtractor={(item) => item.name}
@@ -12,10 +13,11 @@ export default function Categories({categories, setTerm, term}){
                   name={item.name}
                   imageUrl={item.imageUrl}
                   index={index}
-                  active={item.name === term}
+                  active={item.name.toLowerCase() === term.toLowerCase()}
                   handlePress={() => setTerm(item.name)}
                 />
               )}
           />
+    </View>
     )
 }

@@ -1,5 +1,5 @@
 
-import { View, StyleSheet, Text, FlatList } from 'react-native';
+import { View, StyleSheet, Text, FlatList, ActivityIndicator } from 'react-native';
 import useRestaurants from '../hooks/useRestaurants';
 import {useEffect} from 'react';
 
@@ -16,7 +16,7 @@ export default function Restaurants({ term }) {
     if (loading) {
         return (
             <View style={styles.container}>
-                <Text style={styles.header}>Loading...</Text>
+                <ActivityIndicator size="large" color="#08081c" />
             </View>
         );
     }
@@ -49,8 +49,7 @@ export default function Restaurants({ term }) {
 const styles = StyleSheet.create({
     container: {
         marginHorizontal: 25,
-        marginVertical: 10,
-        flex: 1,
+
     },
     header: {
         fontWeight: 'bold',
