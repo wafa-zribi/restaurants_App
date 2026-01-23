@@ -1,4 +1,4 @@
-import { View,Text, StyleSheet, Image, Botton, TouchableOpacity } from "react-native"
+import { View,Text, StyleSheet, Image, TouchableOpacity } from "react-native"
 import { elevation } from "../common/styles";
 
 
