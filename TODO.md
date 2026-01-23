@@ -1,6 +1,0 @@
-- [x] Fix typo in useRestaurants.js: setResaults -> setResults
-- [x] Update API param in useRestaurants.js: term -> name
-- [x] Fix destructuring in Restaurants.js
-- [x] Update useEffect in Restaurants.js to use term prop
-- [x] Add rendering logic in Restaurants.js for loading, error, and data
-- [x] Fix style properties in Restaurants.js
